@@ -1,0 +1,182 @@
+:root {
+            --emerald: #50C878;
+            --dark-charcoal: #2d2325;
+            --card-bg: #554348;
+            --text-primary: #D4F5F5;
+            --text-secondary: #8C9A9E;
+            --border-color: #747578;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            padding: 1.5rem;
+            min-height: 100vh;
+        }
+
+        /* --- En-tête --- */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            color: var(--text-primary);
+            font-weight: 300;
+            font-size: 2.5rem;
+        }
+
+        /* --- Structure de la grille du tableau de bord --- */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* --- Style des cartes (widgets) --- */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--emerald);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* --- Widget Horloge --- */
+        .clock-widget {
+            align-items: center;
+            justify-content: center;
+        }
+
+        #clock {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* --- Widget To-Do List --- */
+        .todo-widget {
+            /* Le flex-grow permet au conteneur de la liste de prendre toute la place disponible */
+            flex-grow: 1;
+        }
+
+        #todo-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        #todo-input {
+            flex-grow: 1;
+            background-color: var(--dark-charcoal);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 0.75rem;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        #todo-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        #todo-form button {
+            background-color: var(--text-secondary);
+            color: var(--dark-charcoal);
+            border: none;
+            border-radius: 8px;
+            padding: 0 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        #todo-form button:hover {
+            background-color: grey;
+        }
+
+        #todo-list {
+            list-style-type: none;
+            overflow-y: auto; /* Barre de défilement si liste trop longue (on sait jamais mdr) */
+            max-height: 250px; /* Hauteur pour le pop de la barre */
+        }
+
+        #todo-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 0.25rem;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        #todo-list li:last-child {
+            border-bottom: none;
+        }
+
+        #todo-list li.completed span {
+            text-decoration: line-through;
+            color: var(--text-secondary);
+        }
+
+        .delete-btn {
+            background: none;
+            border: none;
+            color: #ff5c5c;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 1;
+            transition: background-color 0.2s ease;
+        }
+
+        .delete-btn:hover {
+            background-color: rgba(255, 92, 92, 0.2);
+        }
+
+        /* --- Widget Citation --- */
+        .quote-widget {
+            justify-content: center;
+        }
+        
+        #quote-container blockquote {
+            font-size: 1.2rem;
+            font-style: italic;
+            border-left: 3px solid var(--emerald);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        #quote-container figcaption {
+            text-align: right;
+            color: var(--text-secondary);
+            font-weight: bold;
+        }
+        
+        .quote-loading {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
