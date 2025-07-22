@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<link rel="stylesheet" href="styles.css" type="text/css" >
+    <script src="scripts.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Dashboard from Waynocs</title>
+</head>
+<body>
+
+    <header>
+        <h1>Simple Dashboard from Waynocs</h1>
+    </header>
+
+    <main class="dashboard-grid">
+        <!-- Mon Horloge -->
+        <div class="card clock-widget">
+            <h2 class="card-title">Heure Actuelle</h2>
+            <div id="clock">00:00:00</div>
+        </div>
+
+        <!-- Ma petite To-Do List -->
+        <div class="card todo-widget">
+            <h2 class="card-title">Liste de Tâches</h2>
+            <form id="todo-form">
+                <input type="text" id="todo-input" placeholder="Ajouter une nouvelle tâche..." autocomplete="off">
+                <button type="submit">Ajouter</button>
+            </form>
+            <ul id="todo-list">
+                
+            </ul>
+        </div>
+
+        <!-- Never give up buddy -->
+        <div class="card quote-widget">
+            <h2 class="card-title">Inspiration du Jour</h2>
+            <figure id="quote-container">
+                <p class="quote-loading">Chargement de la citation...</p>
+            </figure>
+        </div>
+    </main>
+</body>
+</html>
